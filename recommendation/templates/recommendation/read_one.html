@@ -1,0 +1,51 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+<section class='container'>
+    <div class='card'></div>
+    <div class="card-body">
+        <h1>ID: {{recommend.user.username}}</h1>
+
+
+        <div class="card" style="width: 60rem;">
+            <div class="card-body">
+                <p class="card-text">글 제목</p>
+                <p> {{recommend.post_title}}</p>
+            </div>
+        </div>
+
+        <div class="card" style="width: 60rem;">
+            <div class="card-body">
+
+                <p class="card-text">노래 제목</p>
+                <p> {{recommend.title}} </p>
+            </div>
+        </div>
+
+        <div class="card" style="width: 60rem;">
+            <div class="card-body">
+
+                <p class="card-text">아티스트 이름</p>
+                <p>{{recommend.artist}}</p>
+            </div>
+        </div>
+
+        <div class="card" style="width: 60rem;">
+            <div class="card-body">
+
+                <p class="card-text">장르</p>
+                <p>{{recommend.genre}}</p>
+            </div>
+        </div>
+        <div class="card" style="width: 60rem;">
+            <div class="card-body">
+
+                <p class="card-text">이 노래를 추천하는 이유</p>
+                <p>{{recommend.reason}}</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <a class="btn btn-primary" href="{% url 'r_read' %}" role="button">Post list</a>
+    <a class="btn btn-primary" href="{% url 'home' %}" role="button">Home</a>
+</section>
+{% endblock %}

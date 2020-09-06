@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+
+<form action="{% url 'r_update' recommend.pk %}" method='POST'>
+    {%csrf_token%}
+    <div class="form-group">
+        <label for="contentInput">post title</label>
+        <textarea class="form-control" id="contentInput" name='post_title' rows="5">{{recommend.post_title}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="contentInput">title</label>
+        <textarea class="form-control" id="contentInput" name='title' rows="5">{{recommend.title}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="contentInput">artist</label>
+        <textarea class="form-control" id="contentInput" name='artist' rows="5">{{recommend.artist}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="contentInput">genre</label>
+        <textarea class="form-control" id="contentInput" name='genre' rows="5">{{recommend.genre}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="contentInput">reason</label>
+        <textarea class="form-control" id="contentInput" name='reason' rows="5">{{recommend.reason}}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

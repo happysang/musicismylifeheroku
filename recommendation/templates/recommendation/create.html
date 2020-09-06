@@ -1,0 +1,34 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+<section class="container">
+   <form action="{% url 'r_create' %}" method="POST">
+      {% csrf_token %}
+      <h1>POST</h1>
+
+      <div class="form-group">
+         <label for="contentInput"> 글 제목 </label>
+         <textarea class="form-control" id="contentInput" name='post_title' rows="5"></textarea>
+      </div>
+
+      <div class="form-group">
+         <label for="contentInput"> 노래 제목 </label>
+         <textarea class="form-control" id="contentInput" name='title' rows="5"></textarea>
+      </div>
+
+      <div class="form-group">
+         <label for="contentInput"> 아티스트 이름 </label>
+         <textarea class="form-control" id="contentInput" name='artist' rows="5"></textarea>
+      </div>
+
+      <div class="form-group">
+         <label for="contentInput"> 장르 </label>
+         <textarea class="form-control" id="contentInput" name='genre' rows="5"></textarea>
+      </div>
+      <div class="form-group">
+         <label for="contentInput"> 이 노래를 추천하는 이유 </label>
+         <textarea class="form-control" id="contentInput" name='reason' rows="5"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+   </setion>
+   {% endblock %}

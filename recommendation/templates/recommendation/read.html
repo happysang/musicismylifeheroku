@@ -1,0 +1,36 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+<section class='container'>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">NO.</th>
+        <th scope="col">username</th>
+        <th scope="col">post title</th>
+        <th scope="col">Create Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for recommend in recommends %}
+      {% if request.session.user %}
+      <tr>
+        <th scope="row">{{recommend.pk}}</th>
+        <td>{{recommend.user.username}}</td>
+        <td><a href="{% url 'r_read_one' recommend.pk %}">{{recommend.post_title}}</a></td>
+        <td>{{recommend.create_at}}</td>
+        {% if request.session.user == recommend.user.username %}
+        <td><a href="{% url 'r_update' recommend.pk %}" class="btn btn-outline-success my-2 my-sm-0">수정하기</a>
+            <a href="{% url 'r_delete' recommend.pk %}" class="btn btn-outline-success my-2 my-sm-0">삭제하기</a>
+        </td>
+        {% endif %}
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="bar2" style="margin:6px ;">
+    <a href="{% url 'r_create'%}" class="btn btn-outline-secondary my-2 my-sm-0">Create</a>
+  </div>
+</section>
+{% endblock %}
